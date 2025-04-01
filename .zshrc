@@ -106,7 +106,9 @@ source $ZSH/oh-my-zsh.sh
 # Variables
 export EDITOR=vim
 # source secrets
-source ~/.env
+if [ -e ~/.env ]; then
+    source ~/.env
+fi
 # aliases
 ## Git 
 alias gs='git status'

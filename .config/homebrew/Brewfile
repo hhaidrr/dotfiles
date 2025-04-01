@@ -1,4 +1,3 @@
-brew "gcc"
 brew "neovim"
 brew "python3"
 brew "ripgrep"

@@ -122,3 +122,5 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 alias brewfile='brew bundle --file=~/.config/homebrew/Brewfile'
 
 . "$HOME/.local/bin/env"
+
+exec zsh
