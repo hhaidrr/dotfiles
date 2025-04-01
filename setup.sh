@@ -26,6 +26,8 @@ echo "Installing Homebrew packages..."
 
 echo "Initializing Stow symlinks..."
 mv ~/.bashrc ~/.bashrc.bak
+mkdir ~/.config
+touch ~/.config/test.txt
 /usr/bin/stow .
 
 
