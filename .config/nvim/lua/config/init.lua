@@ -1,0 +1,7 @@
+require 'config.base_keymaps'
+require 'config.custom_highlights'
+require 'config.spellcheck'
+require 'config.lazy'
+require 'config.autocmds'
+require 'config.conform'
+require 'config.luasnip'
