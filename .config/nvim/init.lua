@@ -15,5 +15,14 @@ vim.o.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkwait700-blin
 
 vim.diagnostic.config({
     update_in_insert = true,
-    severity_sort = true
+    severity_sort = true,
 })
+
+vim.keymap.set('n', '<leader>ds', function()
+    print("hi")
+    vim.diagnostic.config({
+        virtual_lines = not vim.diagnostic.config().virtual_lines,
+        virtual_text = not vim.diagnostic.config().virtual_text,
+    })
+end
+)
