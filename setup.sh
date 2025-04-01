@@ -26,11 +26,11 @@ echo "Installing Homebrew packages..."
 
 echo "Initializing Stow symlinks..."
 # Check if ~/.bashrc is not already a stow symlink
-if [ ! -L '~/.bashrc' ]; then
+if [ ! -L ~/.bashrc ]; then
     mv ~/.bashrc ~/.bashrc.bak
 fi
+# Create .config to avoid stow symlinking the directory itself
 mkdir ~/.config
-touch ~/.config/test.txt
 /usr/bin/stow .
 
 
