@@ -22,7 +22,7 @@ echo "Installing Homebrew..."
 NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 echo "Installing Homebrew packages..."
-~/linuxbrew/.linuxbrew/bin/brew bundle --file=./.config/homebrew/Brewfile
+/home/linuxbrew/.linuxbrew/bin/brew bundle --file=./.config/homebrew/Brewfile
 
 echo "Initializing Stow symlinks..."
 /usr/bin/stow .
