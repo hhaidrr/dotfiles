@@ -25,7 +25,10 @@ echo "Installing Homebrew packages..."
 /home/linuxbrew/.linuxbrew/bin/brew bundle --file=./.config/homebrew/Brewfile
 
 echo "Initializing Stow symlinks..."
-mv ~/.bashrc ~/.bashrc.bak
+# Check if ~/.bashrc is not already a stow symlink
+if [ ! -L '~/.bashrc' ]; then
+    mv ~/.bashrc ~/.bashrc.bak
+fi
 mkdir ~/.config
 touch ~/.config/test.txt
 /usr/bin/stow .
