@@ -22,7 +22,6 @@ vim.keymap.set('n', '<leader>ds', function()
     print("hi")
     vim.diagnostic.config({
         virtual_lines = not vim.diagnostic.config().virtual_lines,
-        virtual_text = not vim.diagnostic.config().virtual_text,
     })
 end
 )
