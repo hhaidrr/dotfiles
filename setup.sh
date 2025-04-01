@@ -22,13 +22,20 @@ echo "Installing Homebrew..."
 NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 echo "Installing Homebrew packages..."
-brew bundle --file=./.config/homebrew/Brewfile
+/home/linuxbrew/.linuxbrew/bin/brew bundle --file=./.config/homebrew/Brewfile
 
 echo "Initializing Stow symlinks..."
-# Check if ~/.bashrc is not already a stow symlink
-if [ ! -L ~/.bashrc ]; then
-    mv ~/.bashrc ~/.bashrc.bak
-fi
+backup_file() {
+  local file="$1"
+  # Check if file is not already a stow symlink
+  if [ -e "$file" ] && [ ! -L "$file" ]; then
+    mv "$file" "$file.bak"
+  fi
+}
+
+backup_file ~/.bashrc 
+backup_file ~/.zshrc 
+
 # Create .config to avoid stow symlinking the directory itself
 mkdir -p  ~/.config
 /usr/bin/stow .
