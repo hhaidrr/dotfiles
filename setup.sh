@@ -25,6 +25,7 @@ echo "Installing Homebrew packages..."
 /home/linuxbrew/.linuxbrew/bin/brew bundle --file=./.config/homebrew/Brewfile
 
 echo "Initializing Stow symlinks..."
+mv ~/.bashrc ~/.bashrc.bak
 /usr/bin/stow .
 
 
