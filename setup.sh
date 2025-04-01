@@ -1,6 +1,7 @@
 #!/bin/bash
 
 if command -v apt-get &> /dev/null; then
+    echo "APT is available. Installing dependencies..."
     sudo apt-get update
     sudo apt-get install -y \
         stow \
@@ -15,19 +16,24 @@ else
 fi
 
 if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
-    # Install Oh My Zsh
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    echo "Installing Oh My Zsh..."
+    RUNZSH=no CHSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    sudo chsh -s $(which zsh) $(whoami)
+else
+    echo "Oh My Zsh is already installed."
 fi
 
 if ! command -v brew &> /dev/null; then
-    # Install Homebrew
+    echo "Installing Homebrew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+else
+    echo "Homebrew is already installed."
 fi
 
-# Install Homebrew packages
+echo "Installing Homebrew packages..."
 ~/linuxbrew/.linuxbrew/bin/brew bundle --file=./.config/homebrew/Brewfile
 
-# Initialize Symlinks
+echo "Initializing Stow symlinks..."
 /usr/bin/stow .
 
 
