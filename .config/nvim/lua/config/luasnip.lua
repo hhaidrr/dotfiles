@@ -19,7 +19,8 @@ local fmta = require("luasnip.extras.fmt").fmta
 local types = require("luasnip.util.types")
 local conds = require("luasnip.extras.conditions")
 local conds_expand = require("luasnip.extras.conditions.expand")
-local py_module_snips = require("config.module_snippets.python")
+local python_snips = require("config.module_snippets.python")
+local markdown_snips = require("config.module_snippets.markdown")
 
 ls.config.set_config = {
     -- This tells LuaSnip to remember to keep around the last snippet.
@@ -40,7 +41,6 @@ ls.config.set_config = {
 -- <c-k> is my expansion key
 -- this will expand the current item or jumpo to the next item within the snippet.
 vim.keymap.set({ 'i', 's' }, '<C-k>', function()
-    print("expand_or_jump")
     if ls.expand_or_jumpable() then
         ls.expand_or_jump()
     end
@@ -126,11 +126,11 @@ ls.add_snippets("python", {
     -- todo: class
     -- logging config module
     s("lm",
-        fmt(py_module_snips.logging_module,
+        fmt(python_snips.logging_module,
             {}
         )),
     s("ll",
-        fmt(py_module_snips.logging_local,
+        fmt(python_snips.logging_local,
             {}
         )),
     s("ld",
@@ -170,7 +170,7 @@ ls.add_snippets("python", {
         )),
     -- todo: argparse module
     s("ar",
-        fmt(py_module_snips.argparse_add_argument,
+        fmt(python_snips.argparse_add_argument,
             {
                 i(1, "-m"),
                 i(2, "--merchant-account"),
@@ -216,3 +216,20 @@ local javascript_snips = {
 }
 ls.add_snippets("javascript", javascript_snips, { key = "javascript" })
 ls.add_snippets("javascriptreact", javascript_snips, { key = "javascriptreact" })
+
+
+ls.add_snippets("markdown", {
+        s("problem",
+            fmt(markdown_snips.problem_document,
+                {
+                    i(1),
+                    i(2),
+                    i(3),
+                    i(4),
+                    i(5),
+                    i(6),
+                    i(7),
+                }
+            )),
+    },
+    { key = "markdown" })
