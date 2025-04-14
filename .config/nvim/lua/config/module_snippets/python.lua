@@ -92,4 +92,12 @@ parser.add_argument(
 )
 ]]
 
+M.main_function = [[
+def main():
+    {}
+
+if __name__ == '__main__':
+    main()
+]]
+
 return M

@@ -157,9 +157,11 @@ ls.add_snippets("python", {
                 i(1),
             }
         )),
-    s("if __n",
-        fmt("if __name__ == '__main__':\n\tmain()",
-            {}
+    s("main",
+        fmt(python_snips.main_function,
+            {
+                i(1),
+            }
         )),
     s("ce",
         fmt("class {}(Exception):\n\t\"\"\"{}\"\"\"",
