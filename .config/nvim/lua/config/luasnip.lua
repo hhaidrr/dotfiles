@@ -185,6 +185,7 @@ ls.add_snippets("python", {
 }, { key = "python" })
 
 local javascript_snips = {
+    -- logging
     s("ll",
         fmt("console.log({})",
             {
@@ -213,6 +214,18 @@ local javascript_snips = {
         fmt("console.error({})",
             {
                 i(1),
+            }
+        )),
+    -- assignments
+    s("c",
+        fmt("{} {} = {};",
+            {
+                c(1, {
+                    t("const"),
+                    t("let"),
+                }),
+                i(2, "myVar"),
+                i(3),
             }
         )),
 }
