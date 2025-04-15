@@ -98,12 +98,11 @@ ls.add_snippets("python", {
             }
         )),
     s("dc",
-        fmt("@classmethod\ndef {}(cls, {}) -> {}:\n\t{}",
+        fmt("@classmethod\ndef {}(cls) -> {}:\n\t{}",
             {
                 i(1),
                 i(2),
                 i(3),
-                i(4),
             }
         )),
     s("ds",
@@ -116,11 +115,10 @@ ls.add_snippets("python", {
             }
         )),
     s("da",
-        fmt("@abstractmethod\ndef {}(self, {}) -> {}:\n\t...",
+        fmt("@abstractmethod\ndef {}(self) -> {}:\n\t...",
             {
                 i(1),
                 i(2),
-                i(3),
             }
         )),
     -- todo: class
@@ -181,6 +179,11 @@ ls.add_snippets("python", {
                 i(4),
                 i(5),
             }
+        )),
+    -- dump service module
+    s("dm",
+        fmt(python_snips.dump_service,
+            {}
         )),
 }, { key = "python" })
 
