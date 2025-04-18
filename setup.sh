@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 backup_file() {
     # add .bak suffix to existing common files (.bashrc, .zshrc, etc) to prevent our copies from 
     # overwriting them
@@ -42,10 +41,16 @@ fi
 echo "Installing Homebrew packages..."
 /home/linuxbrew/.linuxbrew/bin/brew bundle --file=./.config/homebrew/Brewfile
 
-echo "Installing Tmux Plugin Manager..."
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+    echo "Installing Tmux Plugin Manager..."
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+else
+    echo "Tmux Plugin Manager is already installed."
+fi
+
 echo "Sourcing Tmux configuration..."
 tmux source-file ~/.tmux.conf
+
 echo "Installing Tmux plugins..."
 ~/.tmux/plugins/tpm/bin/install_plugins
 
