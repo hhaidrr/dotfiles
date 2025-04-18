@@ -26,6 +26,14 @@ NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Ho
 echo "Installing Homebrew packages..."
 /home/linuxbrew/.linuxbrew/bin/brew bundle --file=./.config/homebrew/Brewfile
 
+echo "Installing Tmux Plugin Manager..."
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+echo "Sourcing Tmux configuration..."
+tmux source-file ~/.tmux.conf
+echo "Installing Tmux plugins..."
+~/.tmux/plugins/tpm/bin/install_plugins
+
+
 echo "Initializing Stow symlinks..."
 backup_file() {
   local file="$1"
