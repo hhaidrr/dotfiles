@@ -227,7 +227,7 @@ local javascript_snips = {
                     t("const"),
                     t("let"),
                 }),
-                i(2, "myVar"),
+                i(2),
                 i(3),
             }
         )),
