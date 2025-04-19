@@ -25,3 +25,7 @@ vim.keymap.set('n', '<leader>ds', function()
     })
 end
 )
+
+if vim.fn.filereadable("Session.vim") == 1 then
+    vim.cmd("source Session.vim")
+end
