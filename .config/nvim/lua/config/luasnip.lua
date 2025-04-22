@@ -127,6 +127,10 @@ ls.add_snippets("python", {
         fmt(python_snips.logging_module,
             {}
         )),
+    s("class FrameTrace",
+        fmt(python_snips.frametrace,
+            {}
+        )),
     s("ll",
         fmt(python_snips.logging_local,
             {}

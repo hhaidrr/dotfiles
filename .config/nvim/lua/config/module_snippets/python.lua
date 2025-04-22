@@ -218,6 +218,25 @@ import logging
 logger = logging.getLogger(__name__)
 ]]
 
+M.frametrace = [[
+class FrameTrace:
+    """
+    Captures an Exception object's traceback along with its stack frames.
+    Can return this as string by calling str(FrameTrace(...))
+    """
+
+    def __init__(self, e: BaseException, message: Optional[str] = None):
+        self._e = e
+        self._message = message
+        self._traceback = traceback.TracebackException.from_exception(self._e, capture_locals=True)
+
+    def __str__(self) -> str:
+        trace_string: str = "".join(self._traceback.format())
+        if self._message:
+            trace_string = f"{{self._message}}\n" + trace_string
+        return trace_string
+]]
+
 M.argparse_add_argument = [[
 parser.add_argument(
     "{}",
