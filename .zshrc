@@ -122,6 +122,7 @@ alias gd='git diff'
 alias gt='git tag'
 alias gr='git restore'
 alias gm='git merge'
+alias gb='git blame'
 ## Docker
 alias d='docker'             # Docker command
 alias dc='docker-compose'    # Docker-compose command
