@@ -37,7 +37,7 @@ return {
                 -- vim.keymap.set("n", "]G", function()
                 --     vim.cmd("DiagnosticsJumpNext")
                 -- end, bufopts)
-                vim.keymap.set("n", "<leader>dd", vim.diagnostic.setqflist, bufopts)
+                -- vim.keymap.set("n", "<leader>dd", vim.diagnostic.setqflist, bufopts)
                 vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
                 -- if not require("neoconf").get("lsp.keys.goto_definition.disable") then
                 vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
