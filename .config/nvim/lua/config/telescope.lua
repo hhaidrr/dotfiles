@@ -7,6 +7,8 @@ vim.keymap.set('n', '<leader>fb', tb.buffers, { desc = 'Telescope buffers' })
 
 vim.keymap.set('n', '<leader>fh', tb.help_tags, { desc = 'Telescope help tags' })
 
+vim.keymap.set('n', '<leader>fm', tb.marks, { desc = 'Telescope marks' })
+
 --vim.keymap.set("n", "<leader>fs", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
 vim.keymap.set("n", "<leader>fs", live_grep_args_module.live_grep_args, { desc = 'Telescope live grep args' })
 
