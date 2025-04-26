@@ -123,7 +123,7 @@ ls.add_snippets("python", {
         )),
     -- todo: class
     -- logging config module
-    s("lm",
+    s("mlog",
         fmt(python_snips.logging_module,
             {}
         )),
