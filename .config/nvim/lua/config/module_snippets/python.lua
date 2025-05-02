@@ -256,4 +256,14 @@ if __name__ == '__main__':
     main()
 ]]
 
+M.validate_type = [[
+T = TypeVar("T")
+
+
+def validate_type(type_: Type[T], value: object) -> T:
+    if not isinstance(value, type_):
+        raise TypeError(f"{{value}} is not of expected type {{type_}}")
+    return value
+]]
+
 return M

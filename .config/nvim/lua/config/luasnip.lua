@@ -165,6 +165,10 @@ ls.add_snippets("python", {
                 i(1),
             }
         )),
+    s("validate_type",
+        fmt(python_snips.validate_type,
+            {}
+        )),
     s("ce",
         fmt("class {}(Exception):\n\t\"\"\"{}\"\"\"",
             {

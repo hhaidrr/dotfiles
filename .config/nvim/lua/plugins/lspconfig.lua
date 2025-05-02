@@ -40,7 +40,7 @@ return {
                 -- vim.keymap.set("n", "<leader>dd", vim.diagnostic.setqflist, bufopts)
                 vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
                 -- if not require("neoconf").get("lsp.keys.goto_definition.disable") then
-                vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
+                -- vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
                 -- end
                 vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
                 -- vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, bufopts)
