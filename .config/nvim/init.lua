@@ -8,7 +8,10 @@ vim.o.shiftwidth = 4
 vim.o.expandtab = true
 vim.o.smartindent = true
 vim.o.smartindent = true
-vim.o.clipboard = "unnamedplus"
+-- This is slow, differ it to run async
+vim.schedule(function()
+    vim.o.clipboard = "unnamedplus"
+end)
 vim.o.cursorline = true
 vim.o.termguicolors = true
 vim.o.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor"
