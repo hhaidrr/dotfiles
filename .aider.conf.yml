@@ -99,7 +99,7 @@
 #architect: false
 
 ## Enable/disable automatic acceptance of architect changes (default: True)
-auto-accept-architect: true
+auto-accept-architect: false
 
 ## Specify the model to use for commit messages and chat history summarization (default depends on --model)
 #weak-model: xxx
@@ -123,10 +123,10 @@ auto-accept-architect: true
 # Cache settings:
 
 ## Enable caching of prompts (default: False)
-#cache-prompts: false
+cache-prompts: true
 
 ## Number of times to ping at 5min intervals to keep prompt cache warm (default: 0)
-#cache-keepalive-pings: false
+cache-keepalive-pings: 3
 
 ###################
 # Repomap settings:
@@ -159,7 +159,7 @@ auto-accept-architect: true
 # Output settings:
 
 ## Use colors suitable for a dark terminal background (default: False)
-dark-mode: false
+dark-mode: true
 
 ## Use colors suitable for a light terminal background (default: False)
 #light-mode: false
@@ -168,7 +168,7 @@ dark-mode: false
 #pretty: true
 
 ## Enable/disable streaming responses (default: True)
-#stream: true
+stream: false
 
 ## Set the color for user input (default: #00cc00)
 #user-input-color: "#00cc00"
@@ -201,7 +201,7 @@ dark-mode: false
 #code-theme: default
 
 ## Show diffs when committing changes (default: False)
-#show-diffs: false
+show-diffs: true
 
 ###############
 # Git settings:
@@ -255,7 +255,7 @@ auto-commits: true
 #skip-sanity-check-repo: false
 
 ## Enable/disable watching files for ai coding comments (default: False)
-#watch-files: false
+watch-files: true
 
 ########################
 # Fixing and committing:
@@ -381,7 +381,7 @@ auto-commits: true
 #  - zzz
 
 ## Use VI editing mode in the terminal (default: False)
-vim: false
+vim: true
 
 ## Specify the language to use in the chat (default: None, uses system settings)
 #chat-language: xxx
@@ -417,7 +417,7 @@ vim: false
 #multiline: false
 
 ## Enable/disable terminal bell notifications when LLM responses are ready (default: False)
-#notifications: false
+notifications: true
 
 ## Specify a command to run for notifications instead of the terminal bell. If not specified, a default command for your OS may be used.
 #notifications-command: xxx
