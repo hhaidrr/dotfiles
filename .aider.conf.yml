@@ -20,6 +20,7 @@
 ## Specify the model to use for the main chat
 # model: anthropic/claude-3-7-sonnet-20250219
 # model: gemini/gemini-2.5-pro-preview-03-25
+model: openrouter/google/gemini-2.5-pro-preview-03-25
 
 ########################
 # API Keys and settings:
@@ -128,7 +129,7 @@ auto-accept-architect: false
 cache-prompts: true
 
 ## Number of times to ping at 5min intervals to keep prompt cache warm (default: 0)
-cache-keepalive-pings: 3
+cache-keepalive-pings: 12
 
 ###################
 # Repomap settings:
@@ -170,7 +171,7 @@ dark-mode: true
 #pretty: true
 
 ## Enable/disable streaming responses (default: True)
-stream: false
+stream: true
 
 ## Set the color for user input (default: #00cc00)
 #user-input-color: "#00cc00"
@@ -389,7 +390,7 @@ vim: true
 #chat-language: xxx
 
 ## Always say yes to every confirmation
-#yes-always: false
+yes-always: true
 
 ## Enable verbose output
 #verbose: false

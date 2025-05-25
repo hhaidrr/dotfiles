@@ -106,7 +106,14 @@
 
 (generic_type (identifier) @type)
 (type (identifier) @type)
-
+(
+  (type) ; This is the ancestor pattern. It matches any node of type 'type'.
+  .      ; This is the descendant combinator.
+  (identifier) @type ; This is the descendant pattern.
+                                     ; It matches any 'identifier' node that is a descendant
+                                     ; of the 'type' node found by the first part.
+                                     ; The identifier itself is captured as @captured_identifier.
+)
 ; Literals
 
 [
