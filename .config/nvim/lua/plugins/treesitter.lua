@@ -59,6 +59,7 @@ return {
             },
         })
 
+        -- todo: deduplicate highlights
         -- Global --------------------------------------------------------------
         vim.api.nvim_set_hl(0, "CursorLine", { bg = "#1b2529" })
         vim.api.nvim_set_hl(0, "LineNr", { fg = "#3a5e62" })
@@ -121,6 +122,34 @@ return {
 
         vim.api.nvim_set_hl(0, "CustomParameter", { fg = green })
         vim.api.nvim_set_hl(0, "@variable.parameter.typescript", { link = "CustomParameter" })
+
+        -- TYPESCRIPTREACT --------------------------------------------------------------
+        vim.api.nvim_set_hl(0, "CustomKeyword", { fg = purple, italic = true })
+        vim.api.nvim_set_hl(0, "@keyword.tsx", { link = "CustomKeyword" })
+
+        vim.api.nvim_set_hl(0, "SelfReferenceParam", { fg = deeper_red, italic = true })
+        vim.api.nvim_set_hl(0, "@selfReferenceParam.tsx", { link = "SelfReferenceParam" })
+
+        vim.api.nvim_set_hl(0, "CustomType", { fg = cyan })
+        vim.api.nvim_set_hl(0, "@type.tsx", { link = "CustomType" })
+
+        vim.api.nvim_set_hl(0, "CustomIdentifier", { fg = white_gray })
+        vim.api.nvim_set_hl(0, "@identifier.tsx", { link = "CustomIdentifier" })
+
+        vim.api.nvim_set_hl(0, "CustomFunction", { fg = blue })
+        vim.api.nvim_set_hl(0, "@function.tsx", { link = "CustomFunction" })
+
+        vim.api.nvim_set_hl(0, "CustomOperator", { fg = light_cyan })
+        vim.api.nvim_set_hl(0, "@operator.tsx", { link = "CustomOperator" })
+
+        vim.api.nvim_set_hl(0, "CustomNumber", { fg = green })
+        vim.api.nvim_set_hl(0, "@number.tsx", { link = "CustomNumber" })
+
+        vim.api.nvim_set_hl(0, "CustomComment", { fg = blue_gray, italic = true })
+        vim.api.nvim_set_hl(0, "@comment.tsx", { link = "CustomComment" })
+
+        vim.api.nvim_set_hl(0, "CustomParameter", { fg = green })
+        vim.api.nvim_set_hl(0, "@variable.parameter.tsx", { link = "CustomParameter" })
 
         -- javascript --------------------------------------------------------------
         vim.api.nvim_set_hl(0, "CustomKeyword", { fg = purple, italic = true })

@@ -3,18 +3,13 @@
 (super) @selfReferenceParam
 (type_annotation) @type
 (type_identifier) @type
-(predefined_type) @type
 
 (identifier) @identifier
 (property_identifier) @identifier
 
-(function_signature name: (identifier) @function)
-(function_declaration name: (identifier) @function)
-(call_expression function: (identifier) @function)
 (call_expression function: (member_expression (property_identifier) @function))
 (method_definition name: (property_identifier) @function)
 ((method_definition name: (property_identifier) @keyword) (#eq? @keyword "constructor"))
-
 
 ((identifier) @type
  (#match? @type "^[A-Z]"))
@@ -43,27 +38,7 @@
 (comment) @comment
 
 ; Operators
-
-[ "?."
-  "."
-  ":" 
-  "?"
-  "!"
-  "+"
-  "-"
-] @operator
-
-;primitive types
-[ "boolean"
-  "string"
-  "number"
-  "symbol"
-  "any"
-  "never"
-  "object"
-  "unknown"
-  "void"
-] @type
+["?."] @operator
 
 ; Keywords
 [ "abstract"
@@ -87,9 +62,11 @@
   "readonly"
   "override"
   "satisfies"
+  "any"
   "as"
   "asserts"
   ;"bigint"
+  "boolean"
   "break"
   "case"
   "catch"
@@ -112,20 +89,27 @@
   "is"
   "let"
   "module"
+  "never"
   "new"
+  "number"
+  "object"
   "of"
   "require"
   "return"
   "set"
   "static"
+  "string"
   "switch"
+  "symbol"
   ;"this"
   "throw"
   "try"
   "typeof"
   ;"undefined"
   ;"unique"
+  "unknown"
   "var"
+  "void"
   "while"
   "with"
   "yield"
