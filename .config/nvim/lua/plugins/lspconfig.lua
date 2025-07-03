@@ -108,14 +108,14 @@ return {
         -- require("lspconfig").lua_ls.setup {}
         -- require("lspconfig").rust_analyzer.setup {}
         -- ...
-        require("lspconfig").pyright.setup {
-            settings = {
-                python = {
-                    venvPath = "/home/hamzah/code/jetpay/api",
-                    venv = ".venv",
-                    pythonPath = read_exec_path("python"),
-                },
-            },
-        }
+        -- require("lspconfig").pyright.setup {
+        --     settings = {
+        --         python = {
+        --             venvPath = "/home/hamzah/code/jetpay/api",
+        --             venv = ".venv",
+        --             pythonPath = read_exec_path("python"),
+        --         },
+        --     },
+        -- }
     end
 }
