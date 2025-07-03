@@ -124,3 +124,5 @@ alias brewfile='brew bundle --file=~/.config/homebrew/Brewfile'
 . "$HOME/.local/bin/env"
 
 exec zsh
+
+complete -C /usr/bin/terraform terraform

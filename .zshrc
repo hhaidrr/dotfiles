@@ -124,7 +124,6 @@ alias gr='git restore'
 alias gm='git merge'
 alias gb='git blame'
 alias gf='git fetch'
-
 ## Docker
 alias d='docker'             # Docker command
 alias dc='docker-compose'    # Docker-compose command
@@ -133,6 +132,8 @@ alias vi='nvim'
 ## tmux
 alias tx='tmux'
 alias txa='tmux attach'
+## terraform
+alias tf='terraform'
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(starship init zsh)"
@@ -145,3 +146,6 @@ export NVM_DIR="$HOME/.nvm"
 
 export PATH=$PATH:/usr/local/go/bin
 export PATH="$PATH:$HOME/.local/python-3.12/bin"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform
