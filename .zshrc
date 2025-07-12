@@ -110,6 +110,8 @@ if [ -e ~/.env ]; then
     source ~/.env
 fi
 # aliases
+# zsh
+alias s='source'
 ## Git 
 alias gs='git status'
 alias gc='git commit'
@@ -134,6 +136,9 @@ alias tx='tmux'
 alias txa='tmux attach'
 ## terraform
 alias tf='terraform'
+
+# Poetry
+alias activate='eval $(poetry env activate)'
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(starship init zsh)"
