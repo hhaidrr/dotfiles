@@ -73,7 +73,6 @@ ZSH_THEME="robbyrussell"
 plugins=(
 	vi-mode
 	web-search
-	autoenv
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -154,3 +153,4 @@ export PATH="$PATH:$HOME/.local/python-3.12/bin"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
+

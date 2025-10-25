@@ -8,6 +8,8 @@ require("conform").setup({
         -- Conform will run the first available formatter
         javascript = { "prettier", stop_after_first = true },
         javascriptreact = { "prettier", stop_after_first = true },
+        typescript = { "prettier", stop_after_first = true },
+        typescriptreact = { "prettier", stop_after_first = true },
     },
     format_after_save = {
         -- These options will be passed to conform.format()

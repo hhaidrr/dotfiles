@@ -257,5 +257,9 @@ ls.add_snippets("markdown", {
                     i(7),
                 }
             )),
+        s("standown",
+            fmt(markdown_snips.standdown_document,
+                {}
+            ))
     },
     { key = "markdown" })
