@@ -37,6 +37,7 @@ sudo pacman -S --noconfirm \
     zsh \
     make \
     gcc \
+    tmux \ 
     || { echo "Error: Failed to install core dependencies using pacman. Exiting."; exit 1; }
 
 # --- 2. Install Oh My Zsh ---
