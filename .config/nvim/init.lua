@@ -35,7 +35,7 @@ end
 
 -- reproduce netrw issue https://github.com/neovim/neovim/issues/35747
 -- vim.g.netrw_banner = 0
-vim.g.netrw_liststyle = 3 -- this is the culprit option for the bug
+-- vim.g.netrw_liststyle = 3 -- this is the culprit option for the bug
 -- vim.g.netrw_altv = 1
 -- vim.g.netrw_browse_split = 0
 -- vim.g.netrw_altfile = 1
