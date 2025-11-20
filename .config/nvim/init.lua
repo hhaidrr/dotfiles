@@ -1,4 +1,4 @@
-require 'config'
+require("config")
 local vim = vim
 
 vim.o.number = true
@@ -10,28 +10,48 @@ vim.o.smartindent = true
 vim.o.smartindent = true
 -- This is slow, differ it to run async
 vim.schedule(function()
-    vim.o.clipboard = "unnamedplus"
+	vim.o.clipboard = "unnamedplus"
 end)
 vim.o.cursorline = true
 vim.o.termguicolors = true
 vim.o.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor"
 
+-- Define the full statusline format
+-- %f - Filename
+-- %m - Modified status ([+])
+-- %r - Readonly status (RO)
+-- %= - Separator (pushes items to the right)
+-- %l/%L - Current line/Total lines
+-- %c - Current column
+-- vim.opt.statusline = [[%f%m%r%=%l/%L %c]]
+--
+vim.opt.statusline = "%<%f%{&modified?' [+]':''}%r%=%-14.(%l,%c%V%)%P [%{winnr()}]"
+
 vim.diagnostic.config({
-    update_in_insert = true,
-    severity_sort = true,
-    virtual_lines = true,
+	update_in_insert = true,
+	severity_sort = true,
+	virtual_lines = true,
 })
 
-vim.keymap.set('n', '<leader>ds', function()
-    vim.diagnostic.config({
-        virtual_lines = not vim.diagnostic.config().virtual_lines,
-    })
-end
-)
+vim.keymap.set("n", "<leader>ds", function()
+	vim.diagnostic.config({
+		virtual_lines = not vim.diagnostic.config().virtual_lines,
+	})
+end)
 
 if vim.fn.filereadable("Session.vim") == 1 then
-    vim.cmd("source Session.vim")
+	vim.cmd("source Session.vim")
 end
+
+-- This shouldnt be needed, this is just a workaround for the nvm bug where filetype detect does not trigger for the first bugger opened
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufWinEnter" }, {
+	callback = function()
+		-- Only run if filetype is empty (i.e., failed to detect)
+		if vim.bo.filetype == "" then
+			vim.cmd("filetype detect")
+		end
+	end,
+})
 
 -- reproduce netrw issue https://github.com/neovim/neovim/issues/35747
 -- vim.g.netrw_banner = 0

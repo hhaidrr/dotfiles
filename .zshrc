@@ -163,3 +163,8 @@ if [ -f '/home/hamzah/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/hamzah/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/hamzah/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+# pyenv initialization
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
