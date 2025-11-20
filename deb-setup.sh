@@ -17,8 +17,9 @@ if command -v apt-get &> /dev/null; then
     sudo apt-get install -y \
         stow \
         zsh \
-	make \
-	gcc \
+        make \
+        gcc \
+        tmux 
 
     sudo apt autoremove -y
     sudo apt clean
