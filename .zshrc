@@ -73,6 +73,7 @@ ZSH_THEME="robbyrussell"
 plugins=(
 	vi-mode
 	web-search
+    direnv
 )
 
 source $ZSH/oh-my-zsh.sh

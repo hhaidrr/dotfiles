@@ -1,5 +1,4 @@
 brew "neovim"
-brew "python3"
 brew "ripgrep"
 brew "npm"
 brew "nvm"
