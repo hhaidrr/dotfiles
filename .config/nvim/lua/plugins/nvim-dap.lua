@@ -18,6 +18,9 @@ return {
         })
 
         dap_python.setup("~/.local/share/nvim/mason/packages/debugpy/debugpy-adapter")
+        vim.keymap.set("n", "<leader>dn", dap_python.test_method)
+        vim.keymap.set("n", "<leader>df", dap_python.test_class)
+        vim.keymap.set("n", "<leader>ds", dap_python.debug_selection)
         -- Automatically open/close DAP UI
         vim.keymap.set("n", "<leader>b", dap.toggle_breakpoint)
         vim.keymap.set("n", "<leader>gb", dap.run_to_cursor)
