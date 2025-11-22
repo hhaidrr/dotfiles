@@ -19,6 +19,7 @@ if command -v apt-get &> /dev/null; then
         zsh \
         make \
         gcc \
+        direnv \
         tmux 
 
     sudo apt autoremove -y
