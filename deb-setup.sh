@@ -20,6 +20,7 @@ if command -v apt-get &> /dev/null; then
         make \
         gcc \
         direnv \
+        xclip \
         tmux 
 
     sudo apt autoremove -y
