@@ -1,6 +1,8 @@
 brew "neovim"
 brew "ripgrep"
+brew "fd"
 brew "npm"
+brew "zoxide"
 brew "nvm"
 brew "gh"
 brew "glab"

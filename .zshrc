@@ -54,6 +54,7 @@ complete -o nospace -C /usr/bin/terraform terraform
 
 
 eval "$(fzf --zsh)"
+eval "$(zoxide init zsh)"
 
 
 bindkey -v
@@ -81,11 +82,15 @@ bindkey -M vicmd 'j' history-beginning-search-forward
 bindkey '^I' autosuggest-accept
 # Partial accept: Accept the next word of the suggestion
 bindkey '^F' forward-word  # Ctrl + Space
-bindkey '^[[Z' fzf-completion
+# shift-tab
+# bindkey '^[[Z' fzf-completion
+# alt-space
+bindkey '^[ ' fzf-completion
 
 # aliases
 # zsh
 alias s='source'
+alias -- -='cd -'
 ## Git 
 alias gs='git status'
 alias gc='git commit'
@@ -127,8 +132,14 @@ setopt hist_ignore_dups
 setopt hist_save_no_dups
 setopt hist_find_no_dups
 setopt autocd
+ 
+# 2. Init Zoxide and tell it to take over the 'cd' command
+# This ensures that even when autocd triggers, zoxide records the visit
+eval "$(zoxide init --cmd cd zsh)"
 
-
+# 3. Fix the 'zi' conflict (Zinit vs Zoxide)
+unalias zi 2>/dev/null
+alias zi='z -i'
 
 
 # The next line updates PATH for the Google Cloud SDK.
@@ -139,6 +150,6 @@ if [ -f '/home/hamzah/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '
 
 
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-# zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
-
-# eval "$(zoxide init --cmd cd zsh)"
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+# fzf-tab: Bind Alt-j and Alt-k for menu navigation
+zstyle ':fzf-tab:*' fzf-flags --bind='alt-j:down,alt-k:up,alt-l:accept'

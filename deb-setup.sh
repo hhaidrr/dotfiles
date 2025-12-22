@@ -23,6 +23,7 @@ if command -v apt-get &> /dev/null; then
         xclip \
         tmux 
 
+
     sudo apt autoremove -y
     sudo apt clean
 
