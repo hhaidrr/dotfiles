@@ -79,13 +79,14 @@ bindkey -M vicmd 'j' history-beginning-search-forward
 
 # 2. Use Shift-Tab to open the completion menu
 # Note: In many terminals, Shift-Tab sends the code '^[[Z'
-bindkey '^I' autosuggest-accept
+bindkey '^I' fzf-completion
 # Partial accept: Accept the next word of the suggestion
 bindkey '^F' forward-word  # Ctrl + Space
 # shift-tab
 # bindkey '^[[Z' fzf-completion
 # alt-space
-bindkey '^[ ' fzf-completion
+# bindkey '^[ ' fzf-completion
+bindkey '^[ ' autosuggest-accept
 
 # aliases
 # zsh
