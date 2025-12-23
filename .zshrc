@@ -61,7 +61,7 @@ bindkey -v
 export KEYTIMEOUT=1
 autoload -Uz edit-command-line
 zle -N edit-command-line
-bindkey -M vicmd 'v' edit-command-line
+# bindkey -M vicmd 'v' edit-command-line
 bindkey '^?' backward-delete-char
 #
 # --- History Search Bindings ---
@@ -91,6 +91,9 @@ bindkey '^[ ' fzf-completion
 # zsh
 alias s='source'
 alias -- -='cd -'
+## eza
+alias l='eza -lh --git --group-directories-first'
+alias la='eza -lah --git --group-directories-first'
 ## Git 
 alias gs='git status'
 alias gc='git commit'
