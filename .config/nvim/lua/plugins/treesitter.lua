@@ -8,6 +8,10 @@ local red = "#f07178"
 local deeper_red = "#ff5370"
 local purple = "#c792ea"
 local sea_green = "#00ccbb"
+local flamingo = "#f0c6c6"
+local lavender = "#b7bdf8"
+local pastel_pink = "#f5bde6"
+local rosewater = "#f4dbd6"
 local green = "#00cc8f"
 local cool_lilac = "#baa5e3"
 local mid_red = "#ee5d65"
@@ -138,12 +142,13 @@ return {
 
         vim.api.nvim_set_hl(0, "CustomIdentifier", { fg = white_gray })
         vim.api.nvim_set_hl(0, "@identifier.tsx", { link = "CustomIdentifier" })
-        vim.api.nvim_set_hl(0, "@lsp.type.variable.typescriptreact", { link = "CustomIdentifier" })
         vim.api.nvim_set_hl(0, "@lsp.type.property.typescriptreact", { link = "CustomIdentifier" })
 
 
         vim.api.nvim_set_hl(0, "CustomVariable", { fg = white })
+        vim.api.nvim_set_hl(0, "@variable.tsx", { link = "CustomVariable" })
         vim.api.nvim_set_hl(0, "@variable.name.tsx", { link = "CustomVariable" })
+        vim.api.nvim_set_hl(0, "@lsp.type.variable.typescriptreact", { link = "CustomVariable" })
 
         vim.api.nvim_set_hl(0, "CustomFunction", { fg = blue })
         vim.api.nvim_set_hl(0, "@function.tsx", { link = "CustomFunction" })
@@ -169,7 +174,6 @@ return {
         vim.api.nvim_set_hl(0, "CustomTag", { fg = mid_red })
         vim.api.nvim_set_hl(0, "@tag.tsx", { link = "CustomTag" })
 
-
         vim.api.nvim_set_hl(0, "@tag.attribute.tsx", { link = "CustomParameter" })
 
 
@@ -181,16 +185,27 @@ return {
         vim.api.nvim_set_hl(0, "@keyword.return.javascript", { link = "CustomKeyword" })
         vim.api.nvim_set_hl(0, "@keyword.operator.javascript", { link = "CustomKeyword" })
         vim.api.nvim_set_hl(0, "@keyword.javascript", { link = "CustomKeyword" })
+        vim.api.nvim_set_hl(0, "@boolean.javascript", { link = "CustomKeyword" })
         vim.api.nvim_set_hl(0, "@keyword.type.javascript", { link = "CustomKeyword" })
 
         vim.api.nvim_set_hl(0, "SelfReferenceParam", { fg = deeper_red, italic = true })
         vim.api.nvim_set_hl(0, "@selfReferenceParam.javascript", { link = "SelfReferenceParam" })
 
-        vim.api.nvim_set_hl(0, "CustomMember", { fg = sea_green })
+        vim.api.nvim_set_hl(0, "CustomMember", { fg = white_gray })
         vim.api.nvim_set_hl(0, "@variable.member.javascript", { link = "CustomMember" })
 
         vim.api.nvim_set_hl(0, "CustomIdentifier", { fg = white_gray })
         vim.api.nvim_set_hl(0, "@identifier.javascript", { link = "CustomIdentifier" })
+        vim.api.nvim_set_hl(0, "@lsp.type.variable.javascriptreact", { link = "CustomIdentifier" })
+        vim.api.nvim_set_hl(0, "@lsp.type.property.javascriptreact", { link = "CustomIdentifier" })
+
+
+
+        vim.api.nvim_set_hl(0, "CustomVariable", { fg = white })
+        vim.api.nvim_set_hl(0, "@variable.javascript", { link = "CustomVariable" })
+        vim.api.nvim_set_hl(0, "@variable.name.javascript", { link = "CustomVariable" })
+        vim.api.nvim_set_hl(0, "@lsp.type.variable.javascriptreact", { link = "CustomVariable" })
+
 
         vim.api.nvim_set_hl(0, "CustomFunction", { fg = blue })
         vim.api.nvim_set_hl(0, "@function.javascript", { link = "CustomFunction" })
@@ -208,5 +223,16 @@ return {
 
         vim.api.nvim_set_hl(0, "CustomParameter", { fg = green })
         vim.api.nvim_set_hl(0, "@variable.parameter.javascript", { link = "CustomParameter" })
+        vim.api.nvim_set_hl(0, "@lsp.type.parameter.javascriptreact", { link = "CustomParameter" })
+
+        vim.api.nvim_set_hl(0, "@tag.delimiter.javascript", { link = "CustomIdentifier" })
+
+        vim.api.nvim_set_hl(0, "CustomBuiltinTag", { fg = orange_yellow })
+        vim.api.nvim_set_hl(0, "@tag.builtin.javascript", { link = "CustomBuiltinTag" })
+
+        vim.api.nvim_set_hl(0, "CustomTag", { fg = mid_red })
+        vim.api.nvim_set_hl(0, "@tag.javascript", { link = "CustomTag" })
+
+        vim.api.nvim_set_hl(0, "@tag.attribute.javascript", { link = "CustomParameter" })
     end
 }

@@ -19,7 +19,6 @@
   ">" @punctuation.bracket)
 
 ; Variables
-
 (variable_declarator name: (identifier) @variable.name)
 (required_parameter (identifier) @variable.parameter)
 (optional_parameter (identifier) @variable.parameter)

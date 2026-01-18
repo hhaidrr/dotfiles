@@ -17,6 +17,20 @@
 
 
 ; Variables
+(variable_declarator name: (identifier) @variable.name)
+
+; Tags
+; Opening tag brackets
+(jsx_opening_element 
+  ["<" ">"] @tag.bracket)
+
+; Closing tag brackets (Matches <, /, and > individually)
+(jsx_closing_element 
+  ["</" ">"] @tag.bracket)
+
+; Self-closing tag brackets
+(jsx_self_closing_element
+  ["<" "/>"] @tag.bracket)
 
 
 ; Literals
