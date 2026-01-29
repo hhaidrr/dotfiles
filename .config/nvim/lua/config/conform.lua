@@ -16,6 +16,11 @@ require("conform").setup({
         timeout_ms = 5000,
         lsp_format = "fallback",
     },
+    formatters = {
+        prettier = {
+            prepend_args = { "--tab-width", "2" },
+        },
+    },
     -- Set the log level. Use `:ConformInfo` to see the location of the log file.
     log_level = vim.log.levels.DEBUG,
     -- Conform will notify you when a formatter errors

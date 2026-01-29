@@ -54,7 +54,7 @@ return {
                     -- hidden = true,
                     -- no_ignore = true,
                     -- Optional: if you want to exclude .git folder even with hidden=true
-                    find_command = { "fd", "--type", "f", "--hidden", }
+                    find_command = { "fd", "--type", "f", "--hidden", "--exclude", ".git" }
                 },
                 live_grep = {
                     only_sort_text = true
