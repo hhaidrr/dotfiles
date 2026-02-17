@@ -111,9 +111,15 @@ return {
 
         vim.api.nvim_set_hl(0, "CustomType", { fg = cyan })
         vim.api.nvim_set_hl(0, "@type.typescript", { link = "CustomType" })
+        vim.api.nvim_set_hl(0, "@lsp.type.interface.typescript", { link = "CustomType" })
 
         vim.api.nvim_set_hl(0, "CustomIdentifier", { fg = white_gray })
         vim.api.nvim_set_hl(0, "@identifier.typescript", { link = "CustomIdentifier" })
+        vim.api.nvim_set_hl(0, "@lsp.type.property.typescript", { link = "CustomIdentifier" })
+
+        vim.api.nvim_set_hl(0, "CustomVariable", { fg = white })
+        vim.api.nvim_set_hl(0, "@variable.typescript", { link = "CustomVariable" })
+        vim.api.nvim_set_hl(0, "@lsp.type.variable.typescript", { link = "CustomVariable" })
 
         vim.api.nvim_set_hl(0, "CustomFunction", { fg = blue })
         vim.api.nvim_set_hl(0, "@function.typescript", { link = "CustomFunction" })
@@ -129,6 +135,8 @@ return {
 
         vim.api.nvim_set_hl(0, "CustomParameter", { fg = green })
         vim.api.nvim_set_hl(0, "@variable.parameter.typescript", { link = "CustomParameter" })
+        vim.api.nvim_set_hl(0, "@lsp.type.parameter.typescript", { link = "CustomParameter" })
+
 
         -- TYPESCRIPTREACT --------------------------------------------------------------
         vim.api.nvim_set_hl(0, "CustomKeyword", { fg = purple, italic = true })

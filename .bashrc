@@ -125,3 +125,4 @@ alias brewfile='brew bundle --file=~/.config/homebrew/Brewfile'
 exec zsh
 
 complete -C /usr/bin/terraform terraform
+. "/home/hamzah/.deno/env"

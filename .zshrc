@@ -1,3 +1,5 @@
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/home/hamzah/.zsh/completions:"* ]]; then export FPATH="/home/hamzah/.zsh/completions:$FPATH"; fi
 export EDITOR=vim
 export PATH=$PATH:/usr/local/go/bin
 export PATH="$PATH:$HOME/.local/python-3.12/bin"
@@ -92,6 +94,9 @@ bindkey '^[ ' autosuggest-accept
 # zsh
 alias s='source'
 alias -- -='cd -'
+mkcd() {
+  mkdir -p "$1" && cd "$1"
+}
 ## eza
 alias l='eza -lh --git --group-directories-first'
 alias la='eza -lah --git --group-directories-first'
@@ -157,3 +162,4 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 # fzf-tab: Bind Alt-j and Alt-k for menu navigation
 zstyle ':fzf-tab:*' fzf-flags --bind='alt-j:down,alt-k:up,alt-l:accept'
+. "/home/hamzah/.deno/env"

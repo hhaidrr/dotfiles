@@ -3,18 +3,13 @@
 (super) @selfReferenceParam
 (type_annotation) @type
 (type_identifier) @type
-(predefined_type) @type
 
 (identifier) @identifier
 (property_identifier) @identifier
 
-(function_signature name: (identifier) @function)
-(function_declaration name: (identifier) @function)
-(call_expression function: (identifier) @function)
 (call_expression function: (member_expression (property_identifier) @function))
 (method_definition name: (property_identifier) @function)
 ((method_definition name: (property_identifier) @keyword) (#eq? @keyword "constructor"))
-
 
 ((identifier) @type
  (#match? @type "^[A-Z]"))
@@ -24,9 +19,10 @@
   ">" @punctuation.bracket)
 
 ; Variables
-
+(variable_declarator name: (identifier) @variable.name)
 (required_parameter (identifier) @variable.parameter)
 (optional_parameter (identifier) @variable.parameter)
+
 
 ; Literals
 [
