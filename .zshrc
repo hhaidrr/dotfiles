@@ -163,3 +163,11 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 # fzf-tab: Bind Alt-j and Alt-k for menu navigation
 zstyle ':fzf-tab:*' fzf-flags --bind='alt-j:down,alt-k:up,alt-l:accept'
 . "/home/hamzah/.deno/env"
+
+# pnpm
+export PNPM_HOME="/home/hamzah/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

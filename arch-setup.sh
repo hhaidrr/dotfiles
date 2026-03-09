@@ -22,7 +22,7 @@ backup_file() {
     fi
 }
 
-# --- 1. Install System Dependencies via Pacman ---
+# --- Install System Dependencies via Pacman ---
 
 echo "Installing core dependencies using pacman..."
 
@@ -35,22 +35,16 @@ sudo pacman -Syyu --noconfirm || { echo "Error syncing system. Continuing depend
 sudo pacman -S --noconfirm \
     stow \
     zsh \
-    make \
-    gcc \
+    base-devel \
     tmux \
     direnv \
     wget \
+    git \
+    xclip \
     || { echo "Error: Failed to install core dependencies using pacman. Exiting."; exit 1; }
 
-# --- 2. Install Oh My Zsh ---
 
-echo "Installing Oh My Zsh..."
-# KEEP_ZSHRC=yes preserves existing .zshrc (which is handled by backup_file later)
-# RUNZSH=no prevents immediate switch to zsh shell
-# CHSH=no prevents changing the default shell automatically
-KEEP_ZSHRC=yes RUNZSH=no CHSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-# --- 3. Homebrew Installation (Optional/Fallback) ---
+# --- Homebrew Installation (Optional/Fallback) ---
 
 if ! command -v brew &> /dev/null; then
     echo "Installing Homebrew (Linuxbrew)..."
@@ -77,7 +71,7 @@ else
 fi
 
 
-# --- 5. Tmux Plugin Manager (TPM) Setup ---
+# --- Tmux Plugin Manager (TPM) Setup ---
 
 TMUX_TPM_DIR="$HOME/.tmux/plugins/tpm"
 if [ ! -d "$TMUX_TPM_DIR" ]; then
