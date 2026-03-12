@@ -83,13 +83,14 @@ bindkey -M vicmd 'j' history-beginning-search-forward
 # Note: In many terminals, Shift-Tab sends the code '^[[Z'
 bindkey '^I' fzf-completion
 # Partial accept: Accept the next word of the suggestion
-bindkey '^j' forward-word 
+bindkey '^f' forward-word 
 # shift-tab
 # bindkey '^[[Z' fzf-completion
 #
 # alt-space
 # bindkey '^[ ' fzf-completion
 # bindkey '^[ ' autosuggest-accept
+bindkey -r '^[ '
 
 # ctrl-l
 bindkey '^l' autosuggest-accept
@@ -175,3 +176,12 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# Unbind from the default map
+bindkey -r '^[ '
+
+# Specifically unbind from Vi-Insert mode map
+bindkey -M viins -r '^[ '
+
+# If you use Vi-Normal/Command mode and want it gone there too:
+bindkey -M vicmd -r '^[ '
