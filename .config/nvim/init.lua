@@ -33,6 +33,7 @@ vim.diagnostic.config({
 	virtual_lines = true,
 })
 
+vim.keymap.set("n", "yp", ":let @+ = expand('%:.')<CR>", { desc = "Yank relative path" })
 vim.keymap.set("n", "<leader>ds", function()
 	vim.diagnostic.config({
 		virtual_lines = not vim.diagnostic.config().virtual_lines,
