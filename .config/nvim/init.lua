@@ -10,8 +10,25 @@ vim.o.smartindent = true
 vim.o.smartindent = true
 -- This is slow, differ it to run async
 vim.schedule(function()
-	vim.o.clipboard = "unnamedplus"
+	-- vim.o.clipboard = "unnamedplus"
+	if vim.fn.exists("$TMUX") == 1 then
+		vim.g.clipboard = {
+			name = "osc52",
+			copy = {
+				["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+				["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+			},
+			paste = {
+				["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+				["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+			},
+		}
+	end
+
+	-- This makes the default yank 'y' go to the clipboard automatically
+	vim.opt.clipboard:append({ "unnamed", "unnamedplus" })
 end)
+
 vim.o.cursorline = true
 vim.o.termguicolors = true
 vim.o.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor"
