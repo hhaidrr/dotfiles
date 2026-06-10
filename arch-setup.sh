@@ -103,6 +103,9 @@ backup_file "$HOME/.config/nvim"
 backup_file "$HOME/.config/starship.toml"
 backup_file "$HOME/.config/alacritty/alacritty.toml"
 backup_file "$HOME/.config/hypr/bindings.conf"
+backup_file "$HOME/.config/waybar/config.jsonc"
+backup_file "$HOME/.config/waybar/style.css"
+
 
 # Create .config to avoid stow symlinking the directory itself
 mkdir -p "$HOME/.config"
