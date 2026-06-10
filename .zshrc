@@ -156,12 +156,6 @@ unalias zi 2>/dev/null
 alias zi='z -i'
 
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/hamzah/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/hamzah/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/hamzah/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/hamzah/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-
 
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
@@ -185,3 +179,9 @@ bindkey -M viins -r '^[ '
 
 # If you use Vi-Normal/Command mode and want it gone there too:
 bindkey -M vicmd -r '^[ '
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/hamzah/google-cloud-sdk/path.zsh.inc' ]; then . '/home/hamzah/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/hamzah/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/hamzah/google-cloud-sdk/completion.zsh.inc'; fi

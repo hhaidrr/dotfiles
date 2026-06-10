@@ -101,7 +101,8 @@ backup_file "$HOME/.bashrc"
 backup_file "$HOME/.zshrc"
 backup_file "$HOME/.config/nvim"
 backup_file "$HOME/.config/starship.toml"
-
+backup_file "$HOME/.config/alacritty/alacritty.toml"
+backup_file "$HOME/.config/hypr/bindings.conf"
 
 # Create .config to avoid stow symlinking the directory itself
 mkdir -p "$HOME/.config"
