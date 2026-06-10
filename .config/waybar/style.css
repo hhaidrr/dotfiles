@@ -31,12 +31,15 @@
 }
 
 #cpu,
+#memory,
+#disk,
 #battery,
+#network,
 #pulseaudio,
 #custom-omarchy,
 #custom-update {
   min-width: 12px;
-  margin: 0 7.5px;
+  margin: 0 9px;
 }
 
 #tray {
