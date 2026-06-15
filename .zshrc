@@ -35,7 +35,7 @@ zinit snippet OMZ::plugins/direnv
 zinit ice wait"0" lucid atload"zicompinit; zicdreplay"
 zinit light lukechilds/zsh-nvm
 
-zinit ice wait"0" lucid as"program" pick"bin/pyenv" atinit'eval "$(pyenv init - zsh)"'
+zinit ice wait"0" lucid as"program" pick"bin/pyenv" atload'eval "$(pyenv init - zsh)"'
 zinit light pyenv/pyenv
 
 # autoload completions with daily cache
@@ -161,7 +161,10 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 # fzf-tab: Bind Alt-j and Alt-k for menu navigation
 zstyle ':fzf-tab:*' fzf-flags --bind='alt-j:down,alt-k:up,alt-l:accept'
-. "/home/hamzah/.deno/env"
+
+if [ -f "/home/hamzah/.deno/env" ]; 
+then . "/home/hamzah/.deno/env"; 
+fi
 
 # pnpm
 export PNPM_HOME="/home/hamzah/.local/share/pnpm"
