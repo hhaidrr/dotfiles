@@ -43,33 +43,41 @@ sudo pacman -S --noconfirm \
     xclip \
     || { echo "Error: Failed to install core dependencies using pacman. Exiting."; exit 1; }
 
+# --- AUR Helper Installation (yay) ---
 
-# --- Homebrew Installation (Optional/Fallback) ---
-
-if ! command -v brew &> /dev/null; then
-    echo "Installing Homebrew (Linuxbrew)..."
-    NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-    # Attempt to source the Homebrew environment variables after install
-    if [ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
-        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-    elif [ -f "$HOME/.linuxbrew/bin/brew" ]; then
-        eval "$($HOME/.linuxbrew/bin/brew shellenv)"
-    fi
+if ! command -v yay &> /dev/null; then
+    echo "Installing yay (AUR helper)..."
+    # Create a temporary directory for building yay
+    mkdir -p /tmp/yay-build
+    git clone https://aur.archlinux.org/yay-bin.git /tmp/yay-build/yay-bin
+    cd /tmp/yay-build/yay-bin || exit
+    makepkg -si --noconfirm
+    cd - || exit
+    rm -rf /tmp/yay-build
 else
-    echo "Homebrew is already installed."
+    echo "yay is already installed."
 fi
 
-# --- 4. Install Homebrew Packages ---
+# --- Install Terminal Tools and Utilities ---
 
-if command -v brew &> /dev/null; then
-    echo "Installing Homebrew packages from Brewfile..."
-    # Relying on `brew` being in PATH after the sourcing above
-    brew bundle --file=./.config/homebrew/Brewfile
-else
-    echo "Warning: Homebrew not found in PATH. Skipping Brewfile install."
-fi
+echo "Installing CLI utilities via pacman..."
+sudo pacman -S --noconfirm \
+    neovim \
+    ripgrep \
+    fd \
+    zoxide \
+    eza \
+    github-cli \
+    glab \
+    starship \
+    fzf \
+    fnm # Replacing nvm with the faster, native Rust alternative
 
+# --- Install AUR Packages ---
+echo "Installing AUR packages..."
+yay -S --noconfirm \
+    brave-bin \
+    dbeaver
 
 # --- Tmux Plugin Manager (TPM) Setup ---
 
@@ -79,16 +87,6 @@ if [ ! -d "$TMUX_TPM_DIR" ]; then
     git clone https://github.com/tmux-plugins/tpm "$TMUX_TPM_DIR"
 else
     echo "Tmux Plugin Manager is already installed."
-fi
-
-# Install plugins. Assumes ~/.tmux.conf exists (via stow) and contains the TPM configuration.
-if [ -f "$HOME/.tmux.conf" ]; then
-    echo "Sourcing Tmux configuration and installing plugins..."
-    tmux source-file "$HOME/.tmux.conf"
-    # This command may require the user to press 'I' inside tmux, depending on their config.
-    "$TMUX_TPM_DIR/bin/install_plugins"
-else
-    echo "Warning: ~/.tmux.conf not found. Skipping Tmux plugin installation."
 fi
 
 
@@ -115,5 +113,16 @@ mkdir -p "$HOME/.config"
 # Perform stowing
 /usr/bin/stow .
 
+# Install tmux plugins. Assumes ~/.tmux.conf exists (via stow) and contains the TPM configuration.
+if [ -f "$HOME/.tmux.conf" ]; then
+    echo "Sourcing Tmux configuration and installing plugins..."
+    tmux source-file "$HOME/.tmux.conf"
+    # This command may require the user to press 'I' inside tmux, depending on their config.
+    "$TMUX_TPM_DIR/bin/install_plugins"
+else
+    echo "Warning: ~/.tmux.conf not found. Skipping Tmux plugin installation."
+fi
+
 echo "Setup complete. If you want Zsh as your default shell, you must run: 'chsh -s /bin/zsh'."
+
 
