@@ -33,6 +33,7 @@ return {
         -- Modern API parser installation handling
         ts.install({
             "c",
+            "c_sharp",
             "lua",
             "markdown",
             "markdown_inline",
@@ -221,5 +222,22 @@ return {
         vim.api.nvim_set_hl(0, "@tag.javascript", { link = "CustomTag" })
 
         vim.api.nvim_set_hl(0, "@tag.attribute.javascript", { link = "CustomParameter" })
+
+        -- c-sharp --------------------------------------------------------------
+        vim.api.nvim_set_hl(0, "@lsp.type.class.cs", { link = "CustomType" })
+        vim.api.nvim_set_hl(0, "csType", { link = "CustomType" })
+        vim.api.nvim_set_hl(0, "@type.c_sharp", { link = "CustomType" })
+        vim.api.nvim_set_hl(0, "@type.builtin.c_sharp", { link = "CustomType" })
+        vim.api.nvim_set_hl(0, "@lsp.type.struct.cs", { link = "CustomType" })
+
+        vim.api.nvim_set_hl(0, "csAccessModifier", { link = "CustomKeyword" })
+        vim.api.nvim_set_hl(0, "@lsp.type.keyword.cs", {})
+
+        vim.api.nvim_set_hl(0, "@lsp.type.property.cs", { link = "CustomVariable" })
+
+
+        vim.api.nvim_set_hl(0, "@comment.documentation.c_sharp", { link = "CustomComment" })
+        vim.api.nvim_set_hl(0, "csXmlLineComment", { link = "CustomComment" })
+        vim.api.nvim_set_hl(0, "csXmlLineCommentLeader", { link = "CustomComment" })
     end,
 }
