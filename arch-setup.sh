@@ -2,8 +2,6 @@
 
 # Configuration setup script for Arch Linux environments.
 
-# --- Helper Functions ---
-
 backup_file() {
     # Add .bak suffix to existing common files (.bashrc, .zshrc, etc) to prevent our copies from
     # overwriting them if they are not already stow symlinks.
@@ -22,25 +20,33 @@ backup_file() {
     fi
 }
 
-# --- Install System Dependencies via Pacman ---
-
-echo "Installing core dependencies using pacman..."
+echo "Installing user programs via pacman..."
 
 # Update the system and install required packages.
 # We use --noconfirm for non-interactive installation, which is suitable for scripts.
 # Note: On Arch, it's generally good practice to run a full update (-Syyu) before installing new packages.
 
-# Install dependencies: stow, zsh, make, and gcc (build tools)
 sudo pacman -Syyu --noconfirm || { echo "Error syncing system. Continuing dependency install."; }
 sudo pacman -S --noconfirm \
-    stow \
-    zsh \
     base-devel \
+    zsh \
     tmux \
-    direnv \
+    stow \
     wget \
     git \
+    neovim \
+    fd \
+    fzf \
+    ripgrep \
+    zoxide \
+    eza \
+    starship \
     xclip \
+    direnv \
+    github-cli \
+    glab \
+    fnm \
+    bitwarden
     || { echo "Error: Failed to install core dependencies using pacman. Exiting."; exit 1; }
 
 # --- AUR Helper Installation (yay) ---
@@ -58,20 +64,6 @@ else
     echo "yay is already installed."
 fi
 
-# --- Install Terminal Tools and Utilities ---
-
-echo "Installing CLI utilities via pacman..."
-sudo pacman -S --noconfirm \
-    neovim \
-    ripgrep \
-    fd \
-    zoxide \
-    eza \
-    github-cli \
-    glab \
-    starship \
-    fzf \
-    fnm # Replacing nvm with the faster, native Rust alternative
 
 # --- Install AUR Packages ---
 echo "Installing AUR packages..."
