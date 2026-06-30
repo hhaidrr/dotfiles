@@ -46,7 +46,7 @@ sudo pacman -S --noconfirm \
     github-cli \
     glab \
     fnm \
-    bitwarden
+    bitwarden \
     || { echo "Error: Failed to install core dependencies using pacman. Exiting."; exit 1; }
 
 # --- AUR Helper Installation (yay) ---
@@ -98,6 +98,7 @@ backup_file "$HOME/.config/hypr/looknfeel.conf"
 backup_file "$HOME/.config/hypr/input.conf"
 backup_file "$HOME/.config/waybar/config.jsonc"
 backup_file "$HOME/.config/waybar/style.css"
+backup_file "$HOME/.config/tmux/tmux.conf"
 
 
 # Create .config to avoid stow symlinking the directory itself
