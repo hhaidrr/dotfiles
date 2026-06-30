@@ -95,6 +95,7 @@ backup_file "$HOME/.config/alacritty/alacritty.toml"
 backup_file "$HOME/.config/hypr/bindings.conf"
 backup_file "$HOME/.config/hypr/hypridle.conf"
 backup_file "$HOME/.config/hypr/looknfeel.conf"
+backup_file "$HOME/.config/hypr/input.conf"
 backup_file "$HOME/.config/waybar/config.jsonc"
 backup_file "$HOME/.config/waybar/style.css"
 

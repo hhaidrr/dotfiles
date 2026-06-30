@@ -89,8 +89,8 @@
   // },
   "network": {
     "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
-    "format": "{icon}  {bandwidthDownBytes}  {bandwidthUpBytes}",
-    "format-wifi": "{icon}  {bandwidthDownBytes}  {bandwidthUpBytes}",
+    "format": "NET:  {bandwidthDownBytes}  {bandwidthUpBytes} {icon}",
+    "format-wifi": "NET:  {bandwidthDownBytes}  {bandwidthUpBytes} {icon}",
     "format-ethernet": "NET-ETH:  {bandwidthDownBytes}  {bandwidthUpBytes}",
     "format-disconnected": "󰤮",
     "tooltip-format-wifi": "{essid} ({frequency} GHz)",
